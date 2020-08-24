@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %} 
+    <title>Shopping List</title>
+{% endblock %}
+
+
+{% block body %} 
+<h2>helo fffshop</h2>
+
+<hr>
+<div style="display:inline"></div>
+<h2>create new shopping list item</h2>
+<form action="/shop" method="POST">
+    name: <input type="text" name="name" id="name">
+    <br>
+    <input type="submit" value="Save">
+</form>
+<hr>
+</div>
+{% for shopitem in shopl %}
+    <h3>{{ shopitem.name }}</h3>
+    <a href="/shop/delete/{{ shopitem.id }}" class="btn btn-danger">delete</a>
+    <hr>
+{% endfor %}
+{% endblock %}

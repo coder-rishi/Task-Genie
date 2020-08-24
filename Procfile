@@ -1,0 +1,1 @@
+web: gunicorn task-genie:app
