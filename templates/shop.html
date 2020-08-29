@@ -5,21 +5,45 @@
 
 
 {% block body %} 
-<h1>Welcom to the Task-genie Shopping List</h1>
+<br>
+<h1>Welcome to the Task-genie Shopping List</h1>
+<br>
+<hr>
+<br>
 
-<hr>
+<!--hr>
 <div style="display:inline"></div>
-<h2>create new shopping list item</h2>
+<h2>Create a new shopping list item:</h2>
 <form action="/shop" method="POST">
-    name: <input type="text" name="name" id="name">
+    <h2 style="display-inline">name:</h2><input type="text" name="name" id="name" style="display-inline">
     <br>
-    <input type="submit" value="Save">
+    <input type="submit" value="Save" style="display-inline" class="btn btn-primary">
 </form>
-<hr>
+<hr-->
+<h2>Make a new shopping list item below</h2>
+
+<div class="container">
+<form action="/shop" method="POST">
+<div class="form-group row">
+    <div class="col-sm-10">
+      <input type="text" name="name" id="name" class="form-control" placeholder="Name...">
+    </div>
+<input type="submit" value="Save" style="display-inline" class="btn btn-primary">
+</div>
+</form>
+</div>
+
+
+
 </div>
 {% for shopitem in shopl %}
-    <h3>{{ shopitem.name }}</h3>
-    <a href="/shop/delete/{{ shopitem.id }}" class="btn btn-danger">delete</a>
-    <hr>
+    <div class="card text-white bg-info mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ shopitem.name }}</h5>
+      <a href="/shop/delete/{{ shopitem.id }}" class="card-link btn btn-danger">Delete</a>
+    </div>
+  </div>
 {% endfor %}
+
+
 {% endblock %}
