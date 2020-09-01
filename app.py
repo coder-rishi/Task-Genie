@@ -15,7 +15,20 @@ class ShopItem(db.Model):
     def __repr__(self):
         return 'Shopping List item #' + str(self.id)
 
-
+shoplist = [
+    {
+        'name':'jam'
+    },
+    {
+        'name':'jelly'
+    },
+    {
+        'name':'ketchup'
+    },
+    {
+        'name':'bread'
+    },
+]
 
 @app.route('/')
 def hello():
